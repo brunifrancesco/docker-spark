@@ -34,6 +34,13 @@ To run `SparkPi`, exec into a container:
     docker exec -it dockerspark_master_1 /bin/bash
     bin/run-example SparkPi 10
 
+To run Jupyter notebook with a running pyspark instance and connect it to MongoDB instance running on ${YOUR_MONGO_HOST}:
+    
+    docker exec -t -i spark_master bash
+    cd bin
+    pyspark --conf "spark.mongodb.input.uri=mongodb://${YOUR_MONGO_HOST}/measures.measure" --packages org.mongodb.spark:mongo-spark-connector_2.10:2.0.0, org.apache.spark:spark-sql_2.10:2.0.2
+
+
 ## license
 
 MIT
