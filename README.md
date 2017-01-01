@@ -38,8 +38,13 @@ To run Jupyter notebook with a running pyspark instance and connect it to MongoD
     
     docker exec -t -i spark_master bash
     cd bin
-    pyspark --conf "spark.mongodb.input.uri=mongodb://${YOUR_MONGO_HOST}/measures.measure" --packages org.mongodb.spark:mongo-spark-connector_2.10:2.0.0, org.apache.spark:spark-sql_2.10:2.0.2
+    ./pyspark --conf "spark.mongodb.input.uri=mongodb://172.17.0.2/measures.measure" \
+            --packages org.mongodb.spark:mongo-spark-connector_2.10:2.0.0,org.apache.spark:spark-sql_2.10:2.0.2
 
+
+Scaling <n> further spark workers (n must be greater of the created worker containers number):
+   
+   docker-compose scale worker=<n>
 
 ## license
 
