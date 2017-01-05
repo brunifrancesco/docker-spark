@@ -26,15 +26,15 @@ To create a simplistic standalone cluster with [docker-compose](http://docs.dock
 
 The SparkUI will be running at `http://${YOUR_DOCKER_HOST}:8080` with one worker listed. To run `pyspark`, exec into a container:
 
-    docker exec -it dockerspark_master_1 /bin/bash
+    docker exec -it spark_master /bin/bash
     bin/pyspark
 
 To run `SparkPi`, exec into a container:
 
-    docker exec -it dockerspark_master_1 /bin/bash
+    docker exec -it spark_master /bin/bash
     bin/run-example SparkPi 10
 
-To run Jupyter notebook with a running pyspark instance and connect it to MongoDB instance running on ${YOUR_MONGO_HOST}:
+To run `Jupyter notebook` with a running pyspark instance and connect it to MongoDB instance running on ${YOUR_MONGO_HOST}:
     
     docker exec -t -i spark_master bash
     cd bin
@@ -42,9 +42,9 @@ To run Jupyter notebook with a running pyspark instance and connect it to MongoD
             --packages org.mongodb.spark:mongo-spark-connector_2.10:2.0.0,org.apache.spark:spark-sql_2.10:2.0.2
 
 
-Scaling <n> further spark workers (n must be greater of the created worker containers number):
+To scale `N` further Spark workers (`N` must be greater of the created worker containers number):
    
-   docker-compose scale worker=<n>
+   docker-compose scale worker=`N`
 
 ## license
 
