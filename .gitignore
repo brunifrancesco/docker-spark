@@ -1,4 +1,3 @@
 *.tsv
 *.csv
-*.py
 data/notebooks/.ipynb_checkpoints/
