@@ -54,6 +54,8 @@ To update the reverse proxy in order to check Spark workers Web UI:
     python proxier.py
     docker exec bash -c "nginx -s reload"
 
+Pleas be sure *quik* and *docker-py* are installed to your host machine.
+
 Spark worker web UIs are exposed at this URLs: `http://${YOUR_DOCKER_HOST}/workerN` where N in the index of the worker to be checked out (N starts from 0).
 
 ## license
