@@ -22,7 +22,7 @@ To do a thing with Pyspark
 
 To create a simplistic standalone cluster with [docker-compose](http://docs.docker.com/compose):
 
-    docker-compose up
+    docker-compose up --build
 
 The SparkUI will be running at `http://${YOUR_DOCKER_HOST}:8080` with one worker listed. To run `pyspark`, exec into a container:
 
@@ -50,9 +50,11 @@ Please note that you cannot bind multiple containers to the same host port. To w
 
 To update the reverse proxy in order to check Spark workers Web UI:
    
-   cd data/proxy/
-   python proxier.py
-   docker exec bash -c "nginx -s reload"
+    cd data/proxy/
+    python proxier.py
+    docker exec bash -c "nginx -s reload"
+
+Pleas be sure *quik* and *docker-py* are installed to your host machine.
 
 Spark worker web UIs are exposed at this URLs: `http://${YOUR_DOCKER_HOST}/workerN` where N in the index of the worker to be checked out (N starts from 0).
 
