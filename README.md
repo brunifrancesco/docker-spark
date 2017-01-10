@@ -22,7 +22,7 @@ To do a thing with Pyspark
 
 To create a simplistic standalone cluster with [docker-compose](http://docs.docker.com/compose):
 
-    docker-compose up
+    docker-compose up --build
 
 The SparkUI will be running at `http://${YOUR_DOCKER_HOST}:8080` with one worker listed. To run `pyspark`, exec into a container:
 
