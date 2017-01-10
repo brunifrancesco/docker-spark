@@ -14,7 +14,7 @@ mongo-seed:
     'bash -c "mongoimport --host mongodb --db measures --collection measure /tmp/data/data.json"'    
 master:
   #image: gettyimages/spark
-  build: .
+  build: spark_master
   dockerfile: Dockerfile
   command: bin/spark-class org.apache.spark.deploy.master.Master -h master
   hostname: master
