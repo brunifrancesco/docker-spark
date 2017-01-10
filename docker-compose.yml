@@ -49,7 +49,7 @@ proxy:
   hostname: proxy
   mem_limit: 50m
   ports:
-    - 80:80
+    - 1080:80
   volumes:
     - /home/francesco/docker-spark/data/proxy:/etc/nginx/sites-available
 worker:
