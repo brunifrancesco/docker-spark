@@ -50,9 +50,9 @@ Please note that you cannot bind multiple containers to the same host port. To w
 
 To update the reverse proxy in order to check Spark workers Web UI:
    
-   cd data/proxy/
-   python proxier.py
-   docker exec bash -c "nginx -s reload"
+    cd data/proxy/
+    python proxier.py
+    docker exec bash -c "nginx -s reload"
 
 Spark worker web UIs are exposed at this URLs: `http://${YOUR_DOCKER_HOST}/workerN` where N in the index of the worker to be checked out (N starts from 0).
 
