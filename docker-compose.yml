@@ -1,8 +1,6 @@
 mongodb:
   hostname: mongo
   image: mongo:3.2.6
-  ports:
-    - 27018:27017
   container_name: mongodb
 mongo-seed:
   image: mongo:3.2.6
@@ -12,6 +10,14 @@ mongo-seed:
     - ./data/dumps:/tmp/data
   command:
     'bash -c "mongoimport --host mongodb --db measures --collection measure /tmp/data/data.json"'    
+spark_web:
+  build: spark_web
+  dockerfile: Dockerfile
+  container_name: spark_web
+  volumes:
+    - ./data:/tmp/data
+  ports:
+    - 8889:8889
 master:
   #image: gettyimages/spark
   build: spark_master
@@ -19,6 +25,7 @@ master:
   command: bin/spark-class org.apache.spark.deploy.master.Master -h master
   hostname: master
   container_name: spark_master
+  mem_limit: 1g
   environment:
     MASTER: spark://master:7077
     SPARK_CONF_DIR: /conf
