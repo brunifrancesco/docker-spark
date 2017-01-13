@@ -18,6 +18,9 @@ spark_web:
     - ./data:/tmp/data
   ports:
     - 8889:8889
+  links:
+    - master
+    - mongodb
 master:
   #image: gettyimages/spark
   build: spark_master
@@ -71,6 +74,7 @@ worker:
     SPARK_WORKER_WEBUI_PORT: 8081
   links:
     - master
+    - spark_web
   expose:
     - 7012
     - 7013
