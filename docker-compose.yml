@@ -10,6 +10,14 @@ mongo-seed:
     - ./data/dumps:/tmp/data
   command:
     'bash -c "mongoimport --host mongodb --db measures --collection measure /tmp/data/data.json"'    
+spark_toree:
+  build: spark_toree
+  dockerfile: Dockerfile
+  container_name: spark_toree
+  volumes: 
+    - ./data:/tmp/data
+  ports:
+    - 8889:8889
 spark_web:
   build: spark_web
   dockerfile: Dockerfile
