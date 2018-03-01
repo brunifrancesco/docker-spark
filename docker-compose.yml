@@ -11,7 +11,7 @@ services:
       - 2889:8888
   master:
     image: gettyimages/spark
-    #command: bin/spark-class org.apache.spark.deploy.master.Master -h master
+    command: bin/spark-class org.apache.spark.deploy.master.Master -h master
     hostname: master
     container_name: spark_master
     environment:
@@ -40,3 +40,5 @@ services:
     volumes:
       - ./conf/worker:/conf
       - ./data:/tmp/data
+    links:
+      - master
